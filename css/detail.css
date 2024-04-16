@@ -23,16 +23,26 @@
 }
 
 .product__image {
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    overflow-y: hidden;
     width: var(--layout-imagen-width-detail);
     height: var(--layout-imagen-height-detail);
     border-radius: 20px;
-    overflow: hidden;
+}
+
+.product__image__item{
+    flex: 1;
+    min-width: 98%;
+    margin: 0 10px;
+    height: var(--layout-imagen-height-detail);
 }
 
 .product__image img {
     width: var(--layout-imagen-width-detail);
     height: var(--layout-imagen-height-detail);
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .product__menu {
@@ -41,10 +51,6 @@
     display: flex;
     justify-content: space-between;
     padding: 15px 15px 0 15px;
-}
-
-.article__detail {
-
 }
 
 .detail__head {
@@ -114,6 +120,7 @@
     margin-top: 15px;
     display: flex;
     justify-content: space-between;
+    padding-bottom: 80px;
 }
 
 .product__size,
@@ -189,9 +196,15 @@
 
 .color div {
     transition-duration: 0.3s;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 100%;
+    margin: 2px;
 }
 
-.color div:hover {
+.color div:hover,
+.color div.clicked {
     width: 30px;
     height: 30px;
 }
@@ -220,11 +233,14 @@
     margin: 2px;
 }
 
-.size{ 
+
+
+
+.size {
     display: flex;
 }
 
-.circle_size{
+.circle_size {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -235,14 +251,40 @@
     margin: 2px;
     transition-duration: 0.3s;
     font-family: "EncodeSans-SemiBold";
+    cursor: pointer;
 }
 
-.size div {
-    transition-duration: 0.3s;
-}
-
-.size div:hover {    
+.size .circle_size:hover,
+.size .circle_size.clicked {
     background: var(--color-2);
     color: var(--color-5);
     transform: scale(1.3);
+}
+
+
+.alert {
+    padding: 20px;
+    background-color: var(--color-4); /* Verde */
+    color: white;
+    margin-bottom: 15px;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.alert .closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 1s;
 }

@@ -109,7 +109,7 @@ header{
 }
 
 .nav__ul li a{
-    width: 105px;
+    width: 125px;
     height: 35px;
     font-family: "EncodeSans-Medium";
     text-decoration: none;
@@ -126,8 +126,13 @@ header{
 
 .nav__ul li a:hover{
     filter: invert(1);
-    width: 115px;
-    height: 45px;
+    transform: scale(1.05);
+}
+
+.nav__ul li a span{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 
@@ -174,7 +179,7 @@ header{
 .section__front_page a img:first-child {
     width: var(--layout-imagen-width);
     height: var(--layout-imagen-height);
-    object-fit: cover;
+    object-fit: scale-down;
 }
 
 .section__front_page > img:last-child{
@@ -228,6 +233,12 @@ header{
     margin-top: -50px;
 }
 
+#quantityProductsCheck{
+    font-family: "EncodeSans-Semibold";
+    color: white;
+    font-size: 12px;
+}
+
 .footer{
     position: fixed;
     bottom: 10px;
@@ -259,6 +270,8 @@ header{
 
 .footer__ul li a {
     display: flex;
+    text-decoration: none;
+    color: inherit;
 }
 
 .footer__ul li a img{
