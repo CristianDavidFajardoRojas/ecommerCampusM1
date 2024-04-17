@@ -101,7 +101,6 @@ header{
     gap: 10px;
     overflow-x: scroll;
     height: 55px;
-    bac
 }
 
 .nav__ul li{
@@ -125,4 +124,37 @@ header{
 
 .nav__ul li a:hover{
     filter: invert(1);
+}
+
+.footer{
+    position: fixed;
+    bottom: 10px;
+    width: 100%;
+    padding: var(--space-layout-padding-lr);
+}
+
+.footer__ul {
+    background: var(--color-4);
+    height: 55px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 40px;
+}
+
+.footer__ul li {
+    list-style: none;
+    background: var(--color-1);
+    border-radius: 100%;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer__ul li a{
+    width: 24px;
+    height: 24px;
 }
