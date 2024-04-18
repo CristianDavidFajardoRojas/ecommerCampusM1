@@ -158,3 +158,33 @@ header{
     width: 24px;
     height: 24px;
 }
+
+.main__article{
+    height: 70vh;
+    margin-top: 15px;
+    background: red;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    overflow-y: scroll;
+}
+
+.main__article section { 
+    background: green;
+    width: 48%;
+    height: 290px;
+    margin-bottom: 4%;
+}
+
+.main__article section:nth-child(4n+1),
+.main__article section:nth-child(4n+4){
+    background: orange;
+    height: 260px;
+}
+
+
+.main__article section:nth-child(4n-1){
+    background: violet;
+    margin-top: -30px;
+}
+
