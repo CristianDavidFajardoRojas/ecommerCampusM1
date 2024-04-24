@@ -125,7 +125,7 @@
 }
 
 .footer__ul {
-    background: var(--color-4);
+    background: var(--color-4); 
     height: 55px;
     display: flex;
     flex-direction: row;
