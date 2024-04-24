@@ -121,10 +121,13 @@ header{
     background: var(--color-5);
     color: var(--color-1);
     border: 1px solid var(--color-3);
+    transition-duration: 0.3s;
 }
 
 .nav__ul li a:hover{
     filter: invert(1);
+    width: 115px;
+    height: 45px;
 }
 
 
@@ -147,6 +150,11 @@ header{
     
     width: 48%;
     margin-bottom: 4%;
+    transition-duration: 0.3s;
+}
+
+.main__article section:hover {
+    transform: scale(1.05);
 }
 
 .section__front_page{
