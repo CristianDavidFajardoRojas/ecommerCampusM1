@@ -109,7 +109,7 @@ header{
 }
 
 .nav__ul li a{
-    width: 105px;
+    width: 125px;
     height: 35px;
     font-family: "EncodeSans-Medium";
     text-decoration: none;
@@ -128,6 +128,12 @@ header{
     filter: invert(1);
     width: 115px;
     height: 45px;
+}
+
+.nav__ul li a span{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 
