@@ -4,7 +4,7 @@ export const menuListCategoryIndex = async (res)=>{
     data.forEach((value, index) => {
         plantilla += /*html*/`
         <li title="${value.name}">
-            <a href="?id=${value.name}" >
+            <a href="?id=${value.id}" >
                 <img src="storage/img/category.svg" >
                 <span>${value.name}</span>
             </a>
