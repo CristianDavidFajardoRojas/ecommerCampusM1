@@ -126,8 +126,7 @@ header{
 
 .nav__ul li a:hover{
     filter: invert(1);
-    width: 115px;
-    height: 45px;
+    transform: scale(1.05);
 }
 
 .nav__ul li a span{
@@ -180,7 +179,7 @@ header{
 .section__front_page a img:first-child {
     width: var(--layout-imagen-width);
     height: var(--layout-imagen-height);
-    object-fit: cover;
+    object-fit: scale-down;
 }
 
 .section__front_page > img:last-child{
