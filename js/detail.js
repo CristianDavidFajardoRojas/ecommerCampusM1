@@ -2,10 +2,12 @@ import { galleryCategory } from "./components/gallery.js";
 import { titleProductDetail } from "./components/section.js";
 import { getProductId } from "./module/detail.js";
 import { descriptionDetails } from "./components/description.js";
+import { footer_price } from "./components/footer.js";
 
 let main__section_gallery = document.querySelector("#main__section__gallery");
 let main__section__title = document.querySelector("#main__section__title");
 let main__section__description = document.querySelector("#main__section__description");
+let footer__details = document.querySelector("#footer__details")
 
 addEventListener("DOMContentLoaded", async(e)=>{
     let params = new URLSearchParams(location.search);
@@ -16,6 +18,8 @@ addEventListener("DOMContentLoaded", async(e)=>{
     main__section_gallery.innerHTML = await galleryCategory(info);
     main__section__title.innerHTML = await titleProductDetail(info);
     main__section__description.innerHTML = await descriptionDetails(info);
+    footer__details.innerHTML = await footer_price(info);
+    
 
     let decreaseButton = document.querySelector("#decreaseQuantity");
     let increaseButton = document.querySelector("#increaseQuantity");
@@ -40,6 +44,8 @@ addEventListener("DOMContentLoaded", async(e)=>{
         let description = info.data.product_description;
         informationProduct.textContent = description;
     });
+
+
 });
 
 
