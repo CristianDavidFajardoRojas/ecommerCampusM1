@@ -196,9 +196,15 @@
 
 .color div {
     transition-duration: 0.3s;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 100%;
+    margin: 2px;
 }
 
-.color div:hover {
+.color div:hover,
+.color div.clicked {
     width: 30px;
     height: 30px;
 }
@@ -227,11 +233,14 @@
     margin: 2px;
 }
 
-.size{ 
+
+
+
+.size {
     display: flex;
 }
 
-.circle_size{
+.circle_size {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -242,13 +251,11 @@
     margin: 2px;
     transition-duration: 0.3s;
     font-family: "EncodeSans-SemiBold";
+    cursor: pointer;
 }
 
-.size div {
-    transition-duration: 0.3s;
-}
-
-.size div:hover {    
+.size .circle_size:hover,
+.size .circle_size.clicked {
     background: var(--color-2);
     color: var(--color-5);
     transform: scale(1.3);

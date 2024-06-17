@@ -44,8 +44,25 @@ addEventListener("DOMContentLoaded", async(e)=>{
         let description = info.data.product_description;
         informationProduct.textContent = description;
     });
+});
 
+document.addEventListener('DOMContentLoaded', function() {
+    const circles = document.querySelectorAll('.color div');
+    const sizes = document.querySelectorAll('.size .circle_size');
 
+    circles.forEach(circle => {
+        circle.addEventListener('click', () => {
+            circles.forEach(c => c.classList.remove('clicked'));
+            circle.classList.add('clicked');
+        });
+    });
+
+    sizes.forEach(size => {
+        size.addEventListener('click', () => {
+            sizes.forEach(s => s.classList.remove('clicked'));
+            size.classList.add('clicked');
+        });
+    });
 });
 
 
