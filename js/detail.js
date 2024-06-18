@@ -7,7 +7,8 @@ import { footer_price } from "./components/footer.js";
 let main__section_gallery = document.querySelector("#main__section__gallery");
 let main__section__title = document.querySelector("#main__section__title");
 let main__section__description = document.querySelector("#main__section__description");
-let footer__details = document.querySelector("#footer__details")
+let footer__details = document.querySelector("#footer__details");
+
 
 addEventListener("DOMContentLoaded", async(e)=>{
     let params = new URLSearchParams(location.search);
@@ -40,10 +41,21 @@ addEventListener("DOMContentLoaded", async(e)=>{
     let LeerMasButton = document.querySelector("#leerMasOption");
     let informationProduct = document.querySelector("#informationProduct")
 
-    LeerMasButton.addEventListener('click', async e => {
-        let description = info.data.product_description;
-        informationProduct.textContent = description;
+    if(LeerMasButton){
+        LeerMasButton.addEventListener('click', async e => {
+            let description = info.data.product_description;
+            informationProduct.textContent = description;
+        });
+    };
+
+
+    footer__details.addEventListener('click', e => {
+        let prueba = JSON.parse(localStorage.getItem(id));
+        prueba["checkout"]=true
+        localStorage.setItem(id, JSON.stringify(prueba));
+        console.log(localStorage.getItem(id));
     });
+
 });
 
 document.addEventListener('DOMContentLoaded', function() {
