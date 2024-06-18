@@ -27,15 +27,41 @@ addEventListener("DOMContentLoaded", async(e)=>{
     let quantitySpan = document.querySelector("#quantity");
     
     decreaseButton.addEventListener('click', async e => {
+        let price_discount = document.querySelector("#price_discount");
+    let price_original = document.querySelector("#price_original");
+    let params = new URLSearchParams(location.search);
+    let id = params.get('id');
+    let res = JSON.parse(localStorage.getItem(id)).data;
+
+    let product_original_price = undefined;
+    if(res.product_original_price) product_original_price = Number(res.product_original_price.replace("$", ""));
+    let product_price= Number(res.product_price.replace("$", ""));
+
     let quantity = parseInt(quantitySpan.textContent);
     if(quantity > 1){
         quantitySpan.textContent = quantity - 1;
     };
+
+    price_discount.innerHTML = `$${(product_price * Number(quantitySpan.innerHTML)).toFixed(2)}`;
+    if(product_original_price) price_original.innerHTML = `$${(product_original_price * Number(quantitySpan.innerHTML)).toFixed(2)}`;
     });
     
     increaseButton.addEventListener('click', async e => {
+    let price_discount = document.querySelector("#price_discount");
+    let price_original = document.querySelector("#price_original");
+    let params = new URLSearchParams(location.search);
+    let id = params.get('id');
+    let res = JSON.parse(localStorage.getItem(id)).data;
+
+    let product_original_price = undefined;
+    if(res.product_original_price) product_original_price = Number(res.product_original_price.replace("$", ""));
+    let product_price= Number(res.product_price.replace("$", ""));
+    
     let quantity = parseInt(quantitySpan.textContent);
     quantitySpan.textContent = quantity + 1;
+
+    price_discount.innerHTML = `$${(product_price * Number(quantitySpan.innerHTML)).toFixed(2)}`;
+    if(product_original_price) price_original.innerHTML = `$${(product_original_price * Number(quantitySpan.innerHTML)).toFixed(2)}`;
     });
 
     let LeerMasButton = document.querySelector("#leerMasOption");

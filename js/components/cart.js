@@ -13,7 +13,7 @@ export const productsCheckout = async res => {
             <div class="product__description">
                 <h3>${(data.product_title).slice(0, 15)}...</h3>
                 <small>${data.product_star_rating == null ? 0 : data.product_star_rating}⭐</small>
-                <span>${data.product_price}</span>
+                <span>$${data.product_price}</span>
             </div>
             <div class="product__custom">
                 <img src="../storage/img/option.svg">
