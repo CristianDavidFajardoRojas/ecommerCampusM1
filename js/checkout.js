@@ -7,7 +7,11 @@ addEventListener("DOMContentLoaded", async e => {
     let res = await getAllItemsToBuy();
     checkout__details.innerHTML = await productsCheckout(res);
 
-    let product__select = document.querySelectorAll(".product__select");
+    let product__select = document.querySelectorAll(".details__product");
+    let labelItems = document.querySelector("#labelItems");
+    let precioSpan = document.querySelector("#precioSpan");
+    let subTotalSpan = document.querySelector("#subTotalSpan");
+    let photoForDelete = document.querySelector("#photoForDelete");
     let cantidadItems = 0;
     let totalProducts = 0;
 
@@ -15,12 +19,13 @@ addEventListener("DOMContentLoaded", async e => {
         let minusButton = productSelect.querySelector('#minusCheck');
         let plusButton = productSelect.querySelector('#plusCheck');
         let quantitySpan = productSelect.querySelector('#spanCheck');
-        let labelItems = document.querySelector("#labelItems");
-        let precioSpan = document.querySelector("#precioSpan");
-        let precio_Producto = document.querySelector("#precio_Producto");
-        let subTotalSpan = document.querySelector("#subTotalSpan");
-        let photoForDelete = document.querySelector("#photoForDelete");
+        let precio_Producto = productSelect.querySelector("#precio_Producto");
 
+        cantidadItems += parseInt(quantitySpan.textContent);
+        totalProducts += parseFloat((precio_Producto.textContent).replace("$", ""));
+        labelItems.textContent = `Total (${cantidadItems} items)`;
+        precioSpan.textContent = `$${totalProducts.toFixed(2)}`;
+        subTotalSpan.textContent = precioSpan.textContent; 
 
         minusButton.addEventListener('click', e=>{
             let quantity = parseInt(quantitySpan.textContent);
@@ -42,7 +47,7 @@ addEventListener("DOMContentLoaded", async e => {
 
                     quantity = quantity - 1;
                     cantidadItems -= 1;
-                    quantitySpan.textContent = quantity;
+                    if(quantity != 0)quantitySpan.textContent = quantity;
                     labelItems.textContent = `Total (${cantidadItems} items)`;
                     precioSpan.textContent = `$${(Number((precioSpan.textContent).replace("$", "")) - Number((precio_Producto.textContent).replace("$", ""))).toFixed(2)}`;
                     subTotalSpan.textContent = precioSpan.textContent;
@@ -59,15 +64,9 @@ addEventListener("DOMContentLoaded", async e => {
             labelItems.textContent = `Total (${cantidadItems} items)`
             precioSpan.textContent = `$${(Number(precioSpan.textContent.replace("$", "")) + Number((precio_Producto.textContent).replace("$", ""))).toFixed(2)}`;
             subTotalSpan.textContent = precioSpan.textContent
-        }); 
-        cantidadItems += parseInt(quantitySpan.textContent);
-        labelItems.textContent = `Total (${cantidadItems} items)`;
-        totalProducts += parseFloat((precio_Producto.textContent).replace("$", ""));
-        precioSpan.textContent = `$${totalProducts}`;
-        subTotalSpan.textContent = precioSpan.textContent;
-
-
+        });
     });
+    
 });
 
 
