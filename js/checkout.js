@@ -11,7 +11,6 @@ addEventListener("DOMContentLoaded", async e => {
     let labelItems = document.querySelector("#labelItems");
     let precioSpan = document.querySelector("#precioSpan");
     let subTotalSpan = document.querySelector("#subTotalSpan");
-    let photoForDelete = document.querySelector("#photoForDelete");
     let cantidadItems = 0;
     let totalProducts = 0;
 
@@ -20,6 +19,7 @@ addEventListener("DOMContentLoaded", async e => {
         let plusButton = productSelect.querySelector('#plusCheck');
         let quantitySpan = productSelect.querySelector('#spanCheck');
         let precio_Producto = productSelect.querySelector("#precio_Producto");
+        let photoForDelete = productSelect.querySelector("#photoForDelete");
 
         cantidadItems += parseInt(quantitySpan.textContent);
         totalProducts += parseFloat((precio_Producto.textContent).replace("$", ""));
@@ -41,9 +41,8 @@ addEventListener("DOMContentLoaded", async e => {
                 if(dict.data.product_photo == photoForDelete.src){
                     delete dict.checkout;
                     localStorage.setItem(dict.data.asin, JSON.stringify(dict));
-
-                    let details__product = document.querySelector(".details__product")
-                    details__product.remove();
+                    
+                    productSelect.remove();
 
                     quantity = quantity - 1;
                     cantidadItems -= 1;
