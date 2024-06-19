@@ -8,17 +8,18 @@ let main__article = document.querySelector(".main__article");
 let nav__ul = document.querySelector(".nav__ul");
 
 addEventListener("DOMContentLoaded", async e=>{
+    let asd = new URLSearchParams(location.search);
+    if (!asd.has('id')) {
+        asd.set("id", "aps");
+        let newUrl = location.origin + location.pathname + "?" + asd.toString();
+        window.location.href = newUrl;
+    }
     if(!localStorage.getItem("getAllCategory")) localStorage.setItem("getAllCategory", JSON.stringify(await getAllCategory()));
     nav__ul.innerHTML = await menuListCategoryIndex(JSON.parse(localStorage.getItem("getAllCategory")));
     let params = new URLSearchParams(location.search);
     let idCategory = params.get('id');
-    if(idCategory== undefined){
-        let res = await getAllClothesUnder10();
-        main__article.innerHTML = galleryIndex(res, "Fashion");
-    }else{
-        let res = await getAllClothesUnder10();
-        main__article.innerHTML = galleryIndex(res, idCategory);
-    }
+    let res = await getAllClothesUnder10();
+    main__article.innerHTML = galleryIndex(res, idCategory);
 })
 
 input__search.addEventListener("change", async e => {

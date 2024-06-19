@@ -24,13 +24,17 @@ export const getAllCategory = async()=>{
     return data;
 }
 
-export const getAllClothesUnder10 = async(page=300)=>{
+export const getAllClothesUnder10 = async()=>{
+    let params = new URLSearchParams(location.search);
+    let idCategory = params.get('id');
+    let page=300;
     console.log("Esperando .......");
+    console.log(idCategory);
     page = Math.random()*(page/20);
     page = parseInt(Math.round(page));
     if(!page)page=1;
     console.log(page)
-    const url = `https://real-time-amazon-data.p.rapidapi.com/search?query=Aesthetic-Clothes&page=${page}&country=US&sort_by=RELEVANCE&category_id=aps&product_condition=NEW`;
+    const url = `https://real-time-amazon-data.p.rapidapi.com/search?query=clothes&page=${page}&country=US&sort_by=RELEVANCE&category_id=${idCategory}&product_condition=NEW`;
     const options = {
         method: 'GET',
         headers

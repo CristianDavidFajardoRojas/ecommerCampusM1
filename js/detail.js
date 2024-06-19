@@ -78,9 +78,7 @@ addEventListener("DOMContentLoaded", async(e)=>{
     footer__details.addEventListener('click', e => {
         let productLocal = JSON.parse(localStorage.getItem(id));
         productLocal["checkout"]=true;
-        productLocal[""]
         localStorage.setItem(id, JSON.stringify(productLocal));
-        console.log(localStorage.getItem(id));
     });
 
 });
