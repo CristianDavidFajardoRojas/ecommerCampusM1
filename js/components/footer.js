@@ -17,7 +17,7 @@ export const footer_price = async ({ data:dataUpdate } = res) => {
     return /*html*/`
     <ul class="footer__ul">
             <li>
-                <a href="checkout.html">
+                <a href="#">
                     <img src="../storage/img/shopping-cart.svg">
                     <span>Agregar al carrito | <span id='price_discount'>${product_price}</span> <del id='price_original'>${product_original_price}$</del></span>
                 </a>
