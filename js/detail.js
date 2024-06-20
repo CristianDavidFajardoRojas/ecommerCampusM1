@@ -74,14 +74,29 @@ addEventListener("DOMContentLoaded", async(e)=>{
         });
     };
 
-
     footer__details.addEventListener('click', e => {
-        let productLocal = JSON.parse(localStorage.getItem(id));
-        productLocal["checkout"]=true;
-        localStorage.setItem(id, JSON.stringify(productLocal));
-    });
+        if(JSON.parse(localStorage.getItem(id)).checkout){
+            e.preventDefault();
+            let alert = document.getElementById('alertX');
+            alert.style.display = 'flex';
+            setTimeout(function() {
+                alert.style.display = 'none';
+            }, 2000);
+        } else {
+            let productLocal = JSON.parse(localStorage.getItem(id));
+            productLocal["checkout"]=true;
+            localStorage.setItem(id, JSON.stringify(productLocal));
 
+            e.preventDefault();
+            let alert = document.getElementById('alert');
+            alert.style.display = 'flex';
+            setTimeout(function() {
+                alert.style.display = 'none';
+            }, 2000);
+        }
+    });
 });
+
 
 document.addEventListener('DOMContentLoaded', function() {
     const circles = document.querySelectorAll('.color div');
