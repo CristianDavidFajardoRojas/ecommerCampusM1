@@ -233,6 +233,12 @@ header{
     margin-top: -50px;
 }
 
+#quantityProductsCheck{
+    font-family: "EncodeSans-Semibold";
+    color: white;
+    font-size: 12px;
+}
+
 .footer{
     position: fixed;
     bottom: 10px;
@@ -264,6 +270,8 @@ header{
 
 .footer__ul li a {
     display: flex;
+    text-decoration: none;
+    color: inherit;
 }
 
 .footer__ul li a img{
