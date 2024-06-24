@@ -34,7 +34,7 @@ export const getAllClothesUnder10 = async()=>{
     page = parseInt(Math.round(page));
     if(!page)page=1;
     console.log(page)
-    const url = `https://real-time-amazon-data.p.rapidapi.com/search?query=clothes&page=${page}&country=US&sort_by=RELEVANCE&category_id=${idCategory}&product_condition=NEW`;
+    const url = `https://real-time-amazon-data.p.rapidapi.com/search?query=keyboard&page=${page}&country=US&sort_by=RELEVANCE&category_id=${idCategory}`;
     const options = {
         method: 'GET',
         headers

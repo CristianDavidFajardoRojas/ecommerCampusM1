@@ -16,5 +16,5 @@ export const descriptionDetails = async({data: dataUpdate} = res) => {
         <p id = "informationProduct">${await createDescriptionHTML()}</p>
         </article>
         `
-    }else return null
+    }else return "\n\n*No Description*"
 };
